@@ -1,0 +1,21 @@
+*,
+*::after,
+*::before
+  margin: 0
+  padding: 0
+
+  box-sizing: inherit
+
+  &::after, &::before
+    margin: 0
+    padding: 0
+    box-sizing: inherit
+
+// Could be in typography file, but since it acts more like an overall setting
+// of how we size the entire pages it makes more sense to put it in here
+html
+  //defines what 1rem is:
+  font-size: 62.5%
+
+body
+  box-sizing: border-box
