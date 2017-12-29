@@ -1,10 +1,10 @@
-@import "abstracts/all"
-@import "base/all"
-@import "components/all"
-@import "layout/all"
-@import "pages/all"
-@import "themes/all"
-@import "vendors/all"
+@import abstracts/all
+@import base/all
+@import components/all
+@import layout/all
+@import pages/all
+@import themes/all
+@import vendors/all
 
 $color-primary-light: #7ed56f
 $color-primary: #55c57a
@@ -14,11 +14,11 @@ $color-black: #000
 $color-grey-dark: #777
 $color-white: #fff
 
-/*
- *3 principles of good css:
+/*3 principles of good css:
  *- Responsive design (fluid layouts, media queries, responsive imgs, correct units, desktop-first vs mobile-first)
  *- Maintainable and scalable code (clean, easy, reusable, organized, name conventions)
  *- Web performance (compress code, compress images, css preprocessor, less code)
+
 /* reset all elements
 
 @import url("https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900")
@@ -28,16 +28,19 @@ $color-white: #fff
 *::before
   margin: 0
   padding: 0
-  /*
-   *borders and padding are no longer
+
+  /*borders and padding are no longer
    *added to the total size of a box:
+
   box-sizing: inherit
+
   &::after, &::before
     margin: 0
     padding: 0
-    /*
-     *borders and padding are no longer
+
+    /*borders and padding are no longer
      *added to the total size of a box:
+
     box-sizing: inherit
 
 html
@@ -46,6 +49,7 @@ html
   /* root font size as px is not a good practice because if the user changes to another font-size,
    *the root will be fixed at px and the layout won't keep up with the font-size the user chose
   font-size: 62.5%
+
   /* Since the browser's default root font-size is 16px, 62.5% will represent 10px
    *and if the user increase the font-size, 62.5% will represent more than 10px
    *which will allow the layout to "react" to the change (thanks to the "rem")
@@ -57,6 +61,7 @@ html
 body
   font-family: "Lato", sans-serif
   font-weight: 400
+
   /* font-size: 16px;
   line-height: 1.7
   color: $color-grey-dark
@@ -65,11 +70,13 @@ body
 
 .header
   height: 95vh
+
   /* uses 95% of view height
   position: relative
   background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), url(../assets/images/hero.jpg)
   background-size: cover
   background-position: top
+
   /* fix the top of the image at the top
   /* clip-path clip/cut an element part.
    *The polygon function must receive at least 3 coords
@@ -108,23 +115,23 @@ body
   color: $color-white
   margin-bottom: 6rem
 
-.heading-primary--main
-  display: block
-  font-size: 6rem
-  font-weight: 400
-  letter-spacing: 3.5rem
-  animation-name: moveInLeft
-  animation-duration: 1s
-  animation-timing-function: ease-out
-  /* animation-delay: 2s;
-  /* animation-iteration-count: 3;
+  &--main
+    display: block
+    font-size: 6rem
+    font-weight: 400
+    letter-spacing: 3.5rem
+    animation-name: moveInLeft
+    animation-duration: 1s
+    animation-timing-function: ease-out
+    /* animation-delay: 2s;
+    /* animation-iteration-count: 3;
 
-.heading-primary--sub
-  display: block
-  font-size: 2rem
-  font-weight: 700
-  letter-spacing: 1.75rem
-  animation: moveInRight 1s ease-out
+  &--sub
+    display: block
+    font-size: 2rem
+    font-weight: 700
+    letter-spacing: 1.75rem
+    animation: moveInRight 1s ease-out
 
 @keyframes moveInLeft
   0%
@@ -138,7 +145,6 @@ body
     opacity: 1
     transform: translateX(0)
 
-
 @keyframes moveInRight
   0%
     opacity: 0
@@ -151,7 +157,6 @@ body
     opacity: 1
     transform: translateX(0)
 
-
 @keyframes moveInBottom
   0%
     opacity: 0
@@ -160,7 +165,6 @@ body
   100%
     opacity: 1
     transform: translate(0)
-
 
 /* link, viseted ... are pseudo pseudo classes which
  *are kind of a states of a selector
@@ -172,47 +176,45 @@ body
     padding: 1.5rem 4rem
     display: inline-block
     border-radius: 10rem
-    transition: all .2s
+    transition: all 0.2s
     position: relative
     font-size: 1.6rem
+
   &:hover
     transform: translateY(-3px)
-    box-shadow: 0 1rem 2rem rgba($color-black, .2)
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2)
+    &::after
+      transform: scaleX(1.4) scaleY(1.6)
+      opacity: 0
+
   &:active
     transform: translateY(-1px)
-    box-shadow: 0 0.5rem 1rem rgba($color-black, .2)
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2)
 
-/* while clicked
+  &--white
+    background-color: $color-white
+    color: $color-grey-dark
+    &::after
+      background-color: $color-white
 
-.btn--white
-  background-color: $color-white
-  color: $color-grey-dark
+  /* pseudo element
+  &::after
+    /* content and properties must be
+     *specified for it to work
+    content: ""
+    display: inline-block
+    height: 100%
+    position: absolute
+    width: 100%
+    border-radius: 10rem
+    top: 0
+    left: 0
+    z-index: -1
+    transition: all 0.4s
 
-/* pseudo element
-.btn::after
-  /* content and properties must be
-   *specified for it to work
-  content: ""
-  display: inline-block
-  height: 100%
-  position: absolute
-  width: 100%
-  border-radius: 10rem
-  top: 0
-  left: 0
-  z-index: -1
-  transition: all .4s
-
-.btn--white::after
-  background-color: $color-white
-
-.btn:hover::after
-  transform: scaleX(1.4) scaleY(1.6)
-  opacity: 0
-
-.btn--animated
-  /* shortcut: animationName duration timingFunction delay:
-  animation: moveInBottom .5s ease-out .75s
-  /* automatically applies the 0%
-   *style before the animation starts:
-  animation-fill-mode: backwards
+  &--animated
+    /* shortcut: animationName duration timingFunction delay:
+    animation: moveInBottom 0.5s ease-out 0.75s
+    /* automatically applies the 0%
+     *style before the animation starts:
+    animation-fill-mode: backwards
