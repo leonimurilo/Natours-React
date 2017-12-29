@@ -78,26 +78,28 @@ body
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%)
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%)
 
-.header__logo-box
-  /* parent must have relative position
-  position: absolute
-  top: 4rem
-  left: 4rem
+  // the "&" is the same as typing the current selector which is .header
+  // this way the string bellow forms the selector ".header__logo-box"
+  &__logo-box
+    /* parent must have relative position
+    position: absolute
+    top: 4rem
+    left: 4rem
 
-.header__logo
-  height: 3.5rem
+  &__logo
+    height: 3.5rem
 
-.header__text-box
-  position: absolute
-  /* top and left are distances related to the parent element
-  top: 40%
-  left: 50%
-  /* transform translate will
-   *shift the element height and width
-   *and it uses the size of the element itself to measure things (%)
-   * (together with the top and left above):
-  transform: translate(-50%, -50%)
-  text-align: center
+  &__text-box
+    position: absolute
+    /* top and left are distances related to the parent element
+    top: 40%
+    left: 50%
+    /* transform translate will
+     *shift the element height and width
+     *and it uses the size of the element itself to measure things (%)
+     * (together with the top and left above):
+    transform: translate(-50%, -50%)
+    text-align: center
 
 .heading-primary
   /* prevent element from unexpecting shaking when animation happens
@@ -187,7 +189,6 @@ body
   color: $color-grey-dark
 
 /* pseudo element
-
 .btn::after
   /* content and properties must be
    *specified for it to work
