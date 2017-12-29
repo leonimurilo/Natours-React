@@ -5,23 +5,211 @@
 @import "pages/all"
 @import "themes/all"
 @import "vendors/all"
-/* Variables
-/* Styles
 
-td
-  padding: 12px
+/*
+ *3 principles of good css:
+ *- Responsive design (fluid layouts, media queries, responsive imgs, correct units, desktop-first vs mobile-first)
+ *- Maintainable and scalable code (clean, easy, reusable, organized, name conventions)
+ *- Web performance (compress code, compress images, css preprocessor, less code)
 
-h2
-  color: #5bb7db
+/*
+ *COLORS:
+ *
+ *Light green: #7ed56f
+ *Medium green: #55c57a
+ *Dark green: #28b485
 
-.savings
-  color: #60b044
+/* reset all elements
 
-.loss
-  color: #ff0000
+@import url("https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900")
 
-input.small
-  width: 46px
+*
+  margin: 0
+  padding: 0
+  /*
+   *borders and padding are no longer
+   *added to the total size of a box:
+  box-sizing: inherit
+  &::after, &::before
+    margin: 0
+    padding: 0
+    /*
+     *borders and padding are no longer
+     *added to the total size of a box:
+    box-sizing: inherit
 
-td.fuel-savings-label
-  width: 175px
+html
+  /* font-size: 10px;
+  /* 1rem will be 10px since it is related to the root font-size (which is being defined here)
+  /* root font size as px is not a good practice because if the user changes to another font-size,
+   *the root will be fixed at px and the layout won't keep up with the font-size the user chose
+  font-size: 62.5%
+  /* Since the browser's default root font-size is 16px, 62.5% will represent 10px
+   *and if the user increase the font-size, 62.5% will represent more than 10px
+   *which will allow the layout to "react" to the change (thanks to the "rem")
+
+/* font stuff will be inherited by the elements
+ *which is more efficient than putting this into
+ *the *(all) selector
+
+body
+  font-family: "Lato", sans-serif
+  font-weight: 400
+  /* font-size: 16px;
+  line-height: 1.7
+  color: #777
+  padding: 3rem
+  box-sizing: border-box
+
+.header
+  height: 95vh
+  /* uses 95% of view height
+  position: relative
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 131, 0.8)), url(../assets/images/hero.jpg)
+  background-size: cover
+  background-position: top
+  /* fix the top of the image at the top
+  /* clip-path clip/cut an element part.
+   *The polygon function must receive at least 3 coords
+   *that will compose the visible part of the element
+   *demo at: https://bennettfeely.com/clippy/
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%)
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%)
+
+.header__logo-box
+  /* parent must have relative position
+  position: absolute
+  top: 4rem
+  left: 4rem
+
+.header__logo
+  height: 3.5rem
+
+.header__text-box
+  position: absolute
+  /* top and left are distances related to the parent element
+  top: 40%
+  left: 50%
+  /* transform translate will
+   *shift the element height and width
+   *and it uses the size of the element itself to measure things (%)
+   * (together with the top and left above):
+  transform: translate(-50%, -50%)
+  text-align: center
+
+.heading-primary
+  /* prevent element from unexpecting shaking when animation happens
+  backface-visibility: hidden
+  text-transform: uppercase
+  color: #fff
+  margin-bottom: 6rem
+
+.heading-primary--main
+  display: block
+  font-size: 6rem
+  font-weight: 400
+  letter-spacing: 3.5rem
+  animation-name: moveInLeft
+  animation-duration: 1s
+  animation-timing-function: ease-out
+  /* animation-delay: 2s;
+  /* animation-iteration-count: 3;
+
+.heading-primary--sub
+  display: block
+  font-size: 2rem
+  font-weight: 700
+  letter-spacing: 1.75rem
+  animation: moveInRight 1s ease-out
+
+@keyframes moveInLeft
+  0%
+    opacity: 0
+    transform: translateX(-10rem)
+
+  80%
+    transform: translateX(1rem)
+
+  100%
+    opacity: 1
+    transform: translateX(0)
+
+
+@keyframes moveInRight
+  0%
+    opacity: 0
+    transform: translateX(10rem)
+
+  80%
+    transform: translateX(-1rem)
+
+  100%
+    opacity: 1
+    transform: translateX(0)
+
+
+@keyframes moveInBottom
+  0%
+    opacity: 0
+    transform: translateY(3rem)
+
+  100%
+    opacity: 1
+    transform: translate(0)
+
+
+/* link, viseted ... are pseudo pseudo classes which
+ *are kind of a states of a selector
+
+.btn
+  &:link, &:visited
+    text-transform: uppercase
+    text-decoration: none
+    padding: 1.5rem 4rem
+    display: inline-block
+    border-radius: 10rem
+    transition: all .2s
+    position: relative
+    font-size: 1.6rem
+  &:hover
+    transform: translateY(-3px)
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2)
+  &:active
+    transform: translateY(-1px)
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2)
+
+/* while clicked
+
+.btn--white
+  background-color: #fff
+  color: #777
+
+/* pseudo element
+
+.btn::after
+  /* content and properties must be
+   *specified for it to work
+  content: ""
+  display: inline-block
+  height: 100%
+  position: absolute
+  width: 100%
+  border-radius: 10rem
+  top: 0
+  left: 0
+  z-index: -1
+  transition: all .4s
+
+.btn--white::after
+  background-color: #fff
+
+.btn:hover::after
+  transform: scaleX(1.4) scaleY(1.6)
+  opacity: 0
+
+.btn--animated
+  /* shortcut: animationName duration timingFunction delay:
+  animation: moveInBottom .5s ease-out .75s
+  /* automatically applies the 0%
+   *style before the animation starts:
+  animation-fill-mode: backwards
