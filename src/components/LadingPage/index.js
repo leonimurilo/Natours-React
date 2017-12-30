@@ -8,7 +8,6 @@ class LadingPage extends Component {
     return (
       <div className="lading-page">
         <Header/>
-        <GridExample/>
       </div>
     );
   }
