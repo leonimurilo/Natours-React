@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Header from "../Header";
-import GridExample from "../GridExample";
 import AboutSection from "../AboutSection";
 
 class LadingPage extends Component {
