@@ -2,28 +2,29 @@ import React, { Component } from 'react';
 import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
 
-class AnimatedButton extends Component {
+class Button extends Component {
   constructor(props){
     super(props);
   }
 
   render() {
     return (
-      <Link to={this.props.to} className="btn btn--white btn--animated">{this.props.children || "no content"}</Link>
+      <Link to={this.props.to} className={`pill ${ this.props.styleName }`}>{this.props.children || "no content"}</Link>
     );
   }
 
 }
 
-AnimatedButton.defaultProps = {
+Button.defaultProps = {
   to: "/",
   children: "No content"
 };
 
-AnimatedButton.propTypes = {
+Button.propTypes = {
+  styleName: PropTypes.string,
   children: PropTypes.string,
   to: PropTypes.string
 };
 
 
-export default AnimatedButton;
+export default Button;
