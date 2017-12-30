@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from "../Header";
+import GridExample from "../GridExample";
 
 class LadingPage extends Component {
 
@@ -7,6 +8,7 @@ class LadingPage extends Component {
     return (
       <div className="lading-page">
         <Header/>
+        <GridExample/>
       </div>
     );
   }
