@@ -8,22 +8,38 @@ class Button extends Component {
   }
 
   render() {
+    if(this.props.href){
+      return (
+        <a href={this.props.href} className={`${ this.props.styleName }`}>{this.props.children || "no content"}</a>
+      );
+    }
     return (
-      <Link to={this.props.to} className={`pill ${ this.props.styleName }`}>{this.props.children || "no content"}</Link>
+      <Link to={this.props.to} className={`${ this.props.styleName }`}>{this.props.children || "no content"}</Link>
     );
   }
 
 }
 
+function linkRequirements(props, propName, componentName){
+  componentName = componentName || 'Button';
+  if ((!props.to && !props.href)) {
+    return new Error(`X'${componentName}' component requires 'href' or 'to' props be passed as strings.`);
+  }
+
+  if(props[propName] && typeof props[propName] !== 'string'){
+    return new Error(`'${componentName}' component requires 'href' or 'to' props be passed as strings.`);
+  }
+}
+
 Button.defaultProps = {
-  to: "/",
   children: "No content"
 };
 
 Button.propTypes = {
   styleName: PropTypes.string,
   children: PropTypes.string,
-  to: PropTypes.string
+  href: linkRequirements,
+  to: linkRequirements
 };
 
 
