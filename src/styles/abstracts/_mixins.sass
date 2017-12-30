@@ -1,0 +1,6 @@
+// append a pseudo elem after an element which will then clear the floats
+@mixin clearfix
+  &::after
+    content: ""
+    display: table
+    clear: both
