@@ -1,6 +1,10 @@
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import path from 'path';
+
+
+const extractSASS = new ExtractTextPlugin('[name].css');
 
 export default {
   resolve: {
@@ -25,8 +29,10 @@ export default {
       'process.env.NODE_ENV': JSON.stringify('development'), // Tells React to build in either dev or prod modes. https://facebook.github.io/react/downloads.html (See bottom)
       __DEV__: true
     }),
+    extractSASS,
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
+    // Generate an external css file with a hash in the filename
     new HtmlWebpackPlugin({     // Create HTML file that includes references to bundled CSS and JS.
       template: 'src/index.ejs',
       minify: {
@@ -95,36 +101,31 @@ export default {
         ]
       },
       {
-        test: /(\.css|\.scss|\.sass|\.less)$/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true
+        test: /(\.css|\.scss|\.sass)$/,
+        use: extractSASS.extract({
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                sourceMap: true
+              }
+            }, {
+              loader: 'postcss-loader',
+              options: {
+                plugins: () => [
+                  require('autoprefixer')
+                ],
+                sourceMap: true
+              }
+            }, {
+              loader: 'sass-loader',
+              options: {
+                includePaths: [path.resolve(__dirname, 'src', 'sass')],
+                sourceMap: true
+              }
             }
-          }, {
-            loader: 'postcss-loader',
-            options: {
-              plugins: () => [
-                require('autoprefixer')
-              ],
-              sourceMap: true
-            }
-          },{
-            loader: 'less-loader',
-            options: {
-              includePaths: [path.resolve(__dirname, 'src', 'less')],
-              sourceMap: true
-            }
-          }, {
-            loader: 'sass-loader',
-            options: {
-              includePaths: [path.resolve(__dirname, 'src', 'sass')],
-              sourceMap: true
-            }
-          }
-        ]
+          ]
+        })
       }
     ]
   }
