@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
-import _ from "lodash";
 
 class Composition extends Component {
   renderImages(){
     let imgs = [];
     for (let i = 1; i <= 3; i++) {
-      imgs.push(<img key={i} src={this.props.photos["p"+i].url} alt={this.props.photos["p"+i].alt} className={"composition__photo composition__photo--p"+i}/>)
+      imgs.push(<img key={i} src={this.props.photos["p"+i].url} alt={this.props.photos["p"+i].alt} className={"composition__photo composition__photo--p"+i}/>);
     }
     return(imgs);
   }
