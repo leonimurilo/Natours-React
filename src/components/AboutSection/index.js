@@ -1,9 +1,29 @@
 import React, { Component } from 'react';
+import Composition from "../Composition";
 import Button from "../Button";
+
+import photo1 from "../../assets/images/nat-1-large.jpg";
+import photo2 from "../../assets/images/nat-2-large.jpg";
+import photo3 from "../../assets/images/nat-3-large.jpg";
 
 class AboutSection extends Component {
 
   render() {
+    let compositionPhotos = {
+      p1: {
+        url: photo1,
+        alt: "Photo 1"
+      },
+      p2: {
+        url: photo2,
+        alt: "Photo 2"
+      },
+      p3: {
+        url: photo3,
+        alt: "Photo 3"
+      }
+    };
+
     return (
       <section className="section-about">
         <div className="u-center-text u-margin-bottom-big">
@@ -28,7 +48,7 @@ class AboutSection extends Component {
             <Button href="#" styleName="btn-text">Learn more →</Button>
           </div>
           <div className="col-1-of-2">
-            Image composition
+            <Composition photos={compositionPhotos}/>
           </div>
         </div>
       </section>
