@@ -45,7 +45,7 @@ class AboutSection extends Component {
             <p className="paragraph">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque adipisci accusantium fuga sed molestias ipsam, culpa, nobis quod cum asperiores rem quibusdam earum quo tempore omnis doloribus dignissimos unde perspiciatis?
             </p>
-            <Button href="#" styleName="btn-text">Learn more →</Button>
+            <Button href="#" className="btn-text">Learn more →</Button>
           </div>
           <div className="col-1-of-2">
             <Composition photos={compositionPhotos}/>

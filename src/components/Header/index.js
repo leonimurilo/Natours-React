@@ -17,7 +17,7 @@ class Header extends Component {
             <span className="heading-primary--sub">is where life happens</span>
           </h1>
           <Button to="/discover"
-                          styleName="btn btn--white btn--animated">
+                          className="btn btn--white btn--animated">
                           Discover our tours
           </Button>
         </div>

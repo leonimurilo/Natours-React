@@ -10,11 +10,11 @@ class Button extends Component {
   render() {
     if(this.props.href){
       return (
-        <a href={this.props.href} className={`${ this.props.styleName }`}>{this.props.children || "no content"}</a>
+        <a href={this.props.href} className={`${ this.props.className }`}>{this.props.children || "no content"}</a>
       );
     }
     return (
-      <Link to={this.props.to} className={`${ this.props.styleName }`}>{this.props.children || "no content"}</Link>
+      <Link to={this.props.to} className={`${ this.props.className }`}>{this.props.children || "no content"}</Link>
     );
   }
 
@@ -36,7 +36,7 @@ Button.defaultProps = {
 };
 
 Button.propTypes = {
-  styleName: PropTypes.string,
+  className: PropTypes.string,
   children: PropTypes.string,
   href: linkRequirements,
   to: linkRequirements
