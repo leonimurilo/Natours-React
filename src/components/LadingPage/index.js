@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from "../Header";
 import AboutSection from "../AboutSection";
 import FeaturesSection from "../FeaturesSection";
+import ToursSection from "../ToursSection";
 
 class LadingPage extends Component {
 
@@ -12,6 +13,7 @@ class LadingPage extends Component {
         <main>
           <AboutSection/>
           <FeaturesSection/>
+          <ToursSection/>
         </main>
       </div>
     );
