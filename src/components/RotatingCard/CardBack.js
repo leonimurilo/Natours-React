@@ -11,10 +11,10 @@ class CardBack extends Component {
 
     return (
       <div className={`rotating-card__side rotating-card__side--back rotating-card__side--back-${this.props.color}`}>
-        <div className="card__cta">
-            <div className="card__content-box">
-                <p className="card__content-only">{this.props.topText}</p>
-                <p className="card__content-value">{this.props.mainText}</p>
+        <div className="rotating-card__cta">
+            <div className="rotating-card__content-box">
+                <p className="rotating-card__content-top-text">{this.props.topText}</p>
+                <p className="rotating-card__content-main-text">{this.props.mainText}</p>
             </div>
             {this.props.button}
         </div>
