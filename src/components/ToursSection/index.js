@@ -56,6 +56,9 @@ class ToursSection extends Component {
             />
           </div>
         </div>
+        <div className="u-center-text u-margin-top-big">
+          <Button href="#popup" className="btn btn--green">Discover all tours</Button>
+        </div>
       </section>
     );
   }
