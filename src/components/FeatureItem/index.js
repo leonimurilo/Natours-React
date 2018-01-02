@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 class FeatureItem extends Component {
 
   render() {
-    console.log(this.props.iconClass);
     return (
         <div className="feature-item">
           <i className={`feature-item__icon ${this.props.iconClass}`}/>
