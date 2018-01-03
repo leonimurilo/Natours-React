@@ -3,6 +3,7 @@ import Header from "../Header";
 import AboutSection from "../AboutSection";
 import FeaturesSection from "../FeaturesSection";
 import ToursSection from "../ToursSection";
+import StoriesSection from "../StoriesSection";
 
 class LadingPage extends Component {
 
@@ -14,6 +15,7 @@ class LadingPage extends Component {
           <AboutSection/>
           <FeaturesSection/>
           <ToursSection/>
+          <StoriesSection/>
         </main>
       </div>
     );
