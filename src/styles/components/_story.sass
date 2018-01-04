@@ -15,7 +15,7 @@
     height: 15rem
     width: 15rem
     float: left
-
+    position: relative
     // only works if element is floating and have defined dimensions:
     // radius horizontally vertically
     -webkit-shape-outside: circle(50% at 50% 50%)
@@ -23,9 +23,36 @@
     -webkit-clip-path: circle(50% at 50% 50%)
     clip-path: circle(50% at 50% 50%)
     transform: translateX(-3rem) skewX(12deg)
+    //prevent image to escape the clip path in chrome and firefox:
+    overflow: hidden
 
   &__image
-     height: 100%
+    height: 100%
+    transform: translateX(-4rem) scale(1.4)
+    backface-visibility: hidden
+    transition: all .5s
 
   &__text
     transform: skewX(12deg)
+
+  &__caption
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, 20%)
+    color: white
+    text-transform: uppercase
+    font-size: 1.7rem
+    text-align: center
+    opacity: 0
+    transition: all .5s
+    // used to fix the small visual glitch when the animation occurs
+    backface-visibility: hidden
+
+  &:hover &__caption
+    opacity: 1
+    transform: translate(-50%, -50%)
+
+  &:hover &__image
+    transform: translateX(-4rem) scale(1)
+    filter: blur(3px) brightness(80%)

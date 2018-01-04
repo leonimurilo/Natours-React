@@ -14,7 +14,8 @@ class StoriesSection extends Component {
         <div className="row">
           <Story header="I had the best week ever with my family"
           imageUrl={photo1}
-          imageAlt="Person on a tour">
+          imageAlt="Person on a tour"
+          caption="Mary Smith">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id optio nesciunt dolorum Id optio nesciunt dolorum Id optio nesciunt dolorum provident ducimus unde illo voluptate possimus ipsum, quaerat, natus modi autem tempora. Deserunt sed veniam autem voluptatem, reiciendis!
           </Story>
         </div>
