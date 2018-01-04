@@ -55,4 +55,5 @@
 
   &:hover &__image
     transform: translateX(-4rem) scale(1)
-    filter: blur(3px) brightness(80%)
+    // brightness must come before blur to prevent image from shaking (no sense)
+    filter: brightness(80%) blur(3px)
