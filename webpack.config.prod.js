@@ -116,6 +116,18 @@ export default {
         ]
       },
       {
+        test: /(\.mp4|\.webm)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: Math.pow(2, 20) * 15, // 15 megabytes
+              mimetype: 'video/[ext]'
+            }
+          }
+        ]
+      },
+      {
         test: /\.(jpe?g|png|gif|ico)$/i,
         use: [
           {
