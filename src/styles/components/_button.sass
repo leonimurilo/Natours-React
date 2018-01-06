@@ -1,5 +1,5 @@
 .btn
-  &:link, &:visited
+  &, &:link, &:visited
     text-transform: uppercase
     text-decoration: none
     padding: 1.5rem 4rem
@@ -8,8 +8,11 @@
     transition: all 0.2s
     position: relative
     font-size: $default-font-size
+    border: none
+    cursor: pointer
 
-  &:hover
+  &:hover, &:focus
+    outline: none
     transform: translateY(-3px)
     box-shadow: 0 1rem 2rem rgba($color-black, 0.2)
     &::after
