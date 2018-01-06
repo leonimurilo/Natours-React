@@ -4,6 +4,7 @@ import AboutSection from "../AboutSection";
 import FeaturesSection from "../FeaturesSection";
 import ToursSection from "../ToursSection";
 import StoriesSection from "../StoriesSection";
+import BookSection from "../BookSection";
 
 class LadingPage extends Component {
 
@@ -16,6 +17,7 @@ class LadingPage extends Component {
           <FeaturesSection/>
           <ToursSection/>
           <StoriesSection/>
+          <BookSection/>
         </main>
       </div>
     );
