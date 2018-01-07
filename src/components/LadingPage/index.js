@@ -5,6 +5,7 @@ import FeaturesSection from "../FeaturesSection";
 import ToursSection from "../ToursSection";
 import StoriesSection from "../StoriesSection";
 import BookSection from "../BookSection";
+import Footer from "../Footer";
 
 class LadingPage extends Component {
 
@@ -19,6 +20,7 @@ class LadingPage extends Component {
           <StoriesSection/>
           <BookSection/>
         </main>
+        <Footer/>
       </div>
     );
   }
