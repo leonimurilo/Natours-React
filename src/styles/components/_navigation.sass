@@ -3,6 +3,11 @@
   &__checkbox
     display: none
 
+    // when checkbox is checked then (using the general sibling selector)
+    // style the __background which is the __checkbox sibling
+    &:checked ~ .navigation__background
+      transform: scale(80)
+
   &__button
     background-color: $color-white
     height: 7rem
