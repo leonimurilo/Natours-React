@@ -46,7 +46,7 @@ Navigation.propTypes = {
   options: PropTypes.arrayOf(PropTypes.shape(
     {
      to: PropTypes.string.isRequired,
-     text: PropTypes.number.isRequired,
+     text: PropTypes.string.isRequired,
     }
   ))
 };
