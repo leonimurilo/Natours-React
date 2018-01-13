@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {Link} from "react-router-dom";
 
 class Navigation extends Component {
 
   constructor(props){
-    super(props)
+    super(props);
     this.state = {isOpen: false};
   }
 
-  toggleMenu(event){
-    // event.preventDefault();
-    this.setState({isOpen: !this.state.isOpen})
+  toggleMenu(){
+    this.setState({isOpen: !this.state.isOpen});
   }
 
   renderOptions(menuOptions){
@@ -30,9 +30,9 @@ class Navigation extends Component {
       <div className="navigation">
         <input type="checkbox" className="navigation__checkbox" id="navi-toggle" checked={this.state.isOpen}/>
         <label htmlFor="navi-toggle" className="navigation__button" onClick={this.toggleMenu.bind(this)}>
-          <span className="navigation__icon"></span>
+          <span className="navigation__icon"/>
         </label>
-        <div className="navigation__background"> </div>
+        <div className="navigation__background"/>
         <nav className="navigation__nav">
           <ul className="navigation__list">{this.renderOptions.bind(this)(this.props.options)}</ul>
         </nav>
@@ -41,5 +41,14 @@ class Navigation extends Component {
   }
 
 }
+
+Navigation.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.shape(
+    {
+     to: PropTypes.string.isRequired,
+     text: PropTypes.number.isRequired,
+    }
+  ))
+};
 
 export default Navigation;

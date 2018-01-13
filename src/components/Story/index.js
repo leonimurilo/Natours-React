@@ -26,6 +26,6 @@ Story.propTypes = {
   children: PropTypes.string,
   header: PropTypes.string,
   caption: PropTypes.string
-}
+};
 
 export default Story;

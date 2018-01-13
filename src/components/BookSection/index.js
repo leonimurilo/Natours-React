@@ -27,7 +27,7 @@ class BookSection extends Component {
                   <div className="form__radio-group">
                     <input type="radio" className="form__radio-input" id="smallTour" name="size"/>
                     <label htmlFor="smallTour" className="form__radio-label">
-                      <span className="form__radio-button"></span>
+                      <span className="form__radio-button"/>
                       Small tour group
                     </label>
                   </div>
@@ -35,7 +35,7 @@ class BookSection extends Component {
                   <div className="form__radio-group">
                     <input type="radio" className="form__radio-input" id="largeTour" name="size"/>
                     <label htmlFor="largeTour" className="form__radio-label">
-                      <span className="form__radio-button"></span>
+                      <span className="form__radio-button"/>
                       Large tour group
                     </label>
                   </div>

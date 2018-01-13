@@ -21,7 +21,7 @@ class StoriesSection extends Component {
           </video>
         </div>
         <div className="u-center-text u-margin-bottom-big">
-          <h2 className="heading-secondary"></h2>
+          <h2 className="heading-secondary">WE MAKE PEOPLE GENUINELY HAPPY</h2>
         </div>
         <div className="row">
           <Story header="I had the best week ever with my family"
