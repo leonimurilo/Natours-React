@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
+import Navigation from "../Navigation";
 import ErrorBoundary from "../ErrorBoundary";
 
 import LadingPage from "../LadingPage";
@@ -12,8 +13,19 @@ import LadingPage from "../LadingPage";
 
 class App extends React.Component {
   render() {
+
+    let menuOptions = [
+      {to: "/", text: "home"},
+      {to: "about", text: "About Natours"},
+      {to: "benefits", text: "Your benefits"},
+      {to: "popularTours", text: "Popular tours"},
+      {to: "stories", text: "Stories"},
+      {to: "book", text: "Book now"}
+    ];
+
     return (
       <div>
+        <Navigation options={menuOptions}/>
         <ErrorBoundary>
           <Switch>
             <Route exact path="/" component={LadingPage} />
