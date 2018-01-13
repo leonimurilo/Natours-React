@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
 import Navigation from "../Navigation";
+import NotFoundPage from "../NotFoundPage";
 import ErrorBoundary from "../ErrorBoundary";
 
 import LadingPage from "../LadingPage";
@@ -29,6 +30,7 @@ class App extends React.Component {
         <ErrorBoundary>
           <Switch>
             <Route exact path="/" component={LadingPage} />
+            <Route component={NotFoundPage}/>
           </Switch>
         </ErrorBoundary>
       </div>
