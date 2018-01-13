@@ -10,11 +10,11 @@ class Button extends Component {
   render() {
     if(this.props.href){
       return (
-        <a href={this.props.href} className={`${ this.props.className }`}>{this.props.children || "no content"}</a>
+        <a href={this.props.href} onClick={this.props.onClick} className={`${ this.props.className }`}>{this.props.children || "no content"}</a>
       );
     }
     return (
-      <Link to={this.props.to} className={`${ this.props.className }`}>{this.props.children || "no content"}</Link>
+      <Link to={this.props.to} onClick={this.props.onClick} className={`${ this.props.className }`}>{this.props.children || "no content"}</Link>
     );
   }
 
@@ -23,7 +23,7 @@ class Button extends Component {
 function linkRequirements(props, propName, componentName){
   componentName = componentName || 'Button';
   if ((!props.to && !props.href)) {
-    return new Error(`X'${componentName}' component requires 'href' or 'to' props be passed as strings.`);
+    return new Error(`'${componentName}' component requires 'href' or 'to' props be passed as strings.`);
   }
 
   if(props[propName] && typeof props[propName] !== 'string'){
@@ -38,6 +38,7 @@ Button.defaultProps = {
 Button.propTypes = {
   className: PropTypes.string,
   children: PropTypes.string,
+  onClick: PropTypes.func,
   href: linkRequirements,
   to: linkRequirements
 };
