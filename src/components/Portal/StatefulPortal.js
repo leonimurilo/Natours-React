@@ -47,7 +47,9 @@ class StatefulPortal extends Component {
     if (!this.state.active) {
       return;
     }
-    this.setState({ active: false }, this.props.onClose);
+    setTimeout(() => {
+      this.setState({ active: false }, this.props.onClose);
+    }, this.props.closeDelay);
   }
 
   wrapWithPortal(children) {
@@ -99,13 +101,15 @@ StatefulPortal.propTypes = {
   openByClickOn: PropTypes.element,
   closeOnEsc: PropTypes.bool,
   closeOnOutsideClick: PropTypes.bool,
+  closeDelay: PropTypes.number,
   onOpen: PropTypes.func,
   onClose: PropTypes.func
 };
 
 StatefulPortal.defaultProps = {
   onOpen: () => {},
-  onClose: () => {}
+  onClose: () => {},
+  closeDelay: 0
 };
 
 export default StatefulPortal;

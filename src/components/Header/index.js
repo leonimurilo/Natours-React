@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Button from "../Button";
+import {StatefulPortal} from "../Portal";
+import Popup from "../Popup";
 
 import mainLogo from "../../assets/images/logo-white.png";
 
@@ -16,10 +18,16 @@ class Header extends Component {
             <span className="heading-primary--main">Outdoors</span>
             <span className="heading-primary--sub">is where life happens</span>
           </h1>
-          <Button to="/discover"
-                          className="btn btn--white btn--animated">
-                          Discover our tours
-          </Button>
+
+          <StatefulPortal closeDelay={500} closeOnEsc node={document && document.getElementById('modal')}>
+            {({ openPortal, closePortal, isOpen, portal }) => [
+              <a to="/discover"
+                      className="btn btn--white btn--animated"
+                      key="foo"
+                      onClick={openPortal}>Discover our tours</a>,
+              portal(<Popup onClose={closePortal}/>)
+            ]}
+          </StatefulPortal>
         </div>
       </header>
     );
