@@ -9,5 +9,17 @@ html
   //defines what 1rem is:
   font-size: 62.5%
 
+  +respond(tab-land)
+    // 9px
+    font-size: 56.25%
+
+  +respond(tab-port)
+    // 8px:
+    font-size: 50%
+
+  +respond(big-desktop)
+    // 12px
+    font-size: 75%
+
 body
   box-sizing: border-box
