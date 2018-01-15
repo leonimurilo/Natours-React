@@ -125,3 +125,37 @@ it put many selectors pointing to the same group of properties
   1) Float layouts (bunch of boxes side by side using float)
   2) Flexbox (great for 1 dimension row)
   3) CSS Grid (perfect for 2 dimensions grid)
+
+
+Mobile first vs Desktop first:
+
+  Desktop first:
+    Start developing for large screens.
+    Use media queries to add special rules for smaller screens
+    Use max-width: <width in px> to specify smaller screens rules
+
+
+
+  Mobile first:
+    Start developing for mobile (small) screens.
+    Use media queries to add special rules for bigger screens
+    Use min-width: <width in px> to specify bigger screens rules
+    Usually reduces the website or app to the essentials (stripping away everything that is not really necessary to end up with a smaller and faster project)
+
+    Pros:
+    + 100% optimized for mobile experience
+    + reduces the website/app to the essentials
+    + smaller and faster products
+    + prioritizes content over aesthetic design
+
+    Cons:
+    + Desktop version might feel overly empty and simple
+    + More difficult and counterintuitive to develop
+    + less creative freedom, making it harder to develop creative products
+    + Clients are used to see desktop version as prototype
+    + Do users even use mobile internet? What is the purpose of the site?
+
+    Selecting breakpoints to media queries:
+    Bad approach: Using fewer popular devices width
+    Good approach: Using a lot of popular devices width
+    Perfect approach: Creating media queries breakpoints "where" the website breaks or doesn't look fine
