@@ -25,6 +25,14 @@
     text-align: center
     cursor: pointer
 
+    +respond(tab-port)
+      top: 4rem
+      right: 4rem
+
+    +respond(phone)
+      top: 3rem
+      right: 3rem
+
   &__background
     height: 6rem
     width: 6rem
@@ -36,8 +44,13 @@
     z-index: 1000
     transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1)
 
-    // transform: scale(80)
+    +respond(tab-port)
+      top: 4.5rem
+      right: 4.5rem
 
+    +respond(phone)
+      top: 3.5rem
+      right: 3.5rem
   &__nav
     visibility: hidden
     opacity: 0
