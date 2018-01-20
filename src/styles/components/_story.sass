@@ -12,8 +12,8 @@
 
   +respond(tab-port)
     width: 100%
-    padding: 4rem
-    padding-left: 7rem
+    padding: 3rem
+    padding-left: 6rem
 
   +respond(phone)
     transform: skewX(0)
@@ -33,6 +33,10 @@
     //prevent image to escape the clip path in chrome and firefox:
     overflow: hidden
 
+    +respond(tab-port)
+      height: 12rem
+      width: 12rem
+
     +respond(phone)
       transform: translateX(-3rem) skewX(0)
 
@@ -44,8 +48,10 @@
 
   &__text
     transform: skewX(12deg)
+
     +respond(phone)
       transform: skewX(0)
+
   &__caption
     position: absolute
     top: 50%
