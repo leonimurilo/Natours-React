@@ -159,3 +159,62 @@ Mobile first vs Desktop first:
     Bad approach: Using fewer popular devices width
     Good approach: Using a lot of popular devices width
     Perfect approach: Creating media queries breakpoints "where" the website breaks or doesn't look fine
+
+
+------------------------- Responsive images -------------------------
+Not only an aspect of responsive design but also web performance
+The goal is to serve the right image to the right screen size
+
+When to use responsive images:
+  + Resolution swtiching: Same image with a smaller resolution on a smaller screen
+    CSS: Use media queries to render correct block
+    HTML:
+      srcset: images and their sizes
+      sizes: works like a RECOMMENDATION to the browser to decide which image it will render
+        EX: if the viewport is up to 56.25em/900px then the image will take +/- 20% of the viewport width
+        This info is important for the browser to decide if it wants to render the 300w image or the 1000w one.
+                        <div class="composition">
+                            <img srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w"
+                                 sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
+                                 alt="Photo 1"
+                                 class="composition__photo composition__photo--p1"
+                                 src="img/nat-1-large.jpg">
+
+                            <img srcset="img/nat-2.jpg 300w, img/nat-2-large.jpg 1000w"
+                                 sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
+                                 alt="Photo 2"
+                                 class="composition__photo composition__photo--p2"
+                                 src="img/nat-2-large.jpg">
+
+                            <img srcset="img/nat-3.jpg 300w, img/nat-3-large.jpg 1000w"
+                                 sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
+                                 alt="Photo 3"
+                                 class="composition__photo composition__photo--p3"
+                                 src="img/nat-3-large.jpg">
+                        </div>
+  + Density swtiching: One image for a high resolution screen (high density) and another image for low resolution screen
+    Tip: There is an option on chrome dev tools responsity functionality that allows adding device pixel ratio
+    CSS: Use media queries to render correct block
+    HTML
+      You can use the HTML img tag attribute "srcset"
+        EX: srcset="img/logo-1x 1x, img/logo-2x 2x"
+  + Art direction: Different images on smaller screens
+    CSS: Use media queries to render correct block
+    HTML
+      You can use the html element "picture". When using picture element, you must put at least one
+      <img> tag and one <source> tag inside of it.
+
+      the <source> accepts a "srcset" attribute where you can use Density swtiching and
+      a "media" attribute where you can set a css media query that decides if the image must
+      appear or not. If the media query criteria is met the requirements, then the images
+      defined on "srcset" are shown, else, the images defined on the <img> tag inside the <picture> tag
+      will be shown (as if it was the default)
+
+
+
+------------------------- Testing browser support with @support -------------------------
+
+Graceful degradation:
+  Showing a full website stylized for more modern browsers but also support older ones showing simpler styles
+
+
